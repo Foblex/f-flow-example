@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "f-call-center-flow": {
+    "f-flow-example": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/f-call-center-flow",
+            "outputPath": "dist/f-flow-example",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "f-call-center-flow:build:production"
+              "buildTarget": "f-flow-example:build:production"
             },
             "development": {
-              "buildTarget": "f-call-center-flow:build:development"
+              "buildTarget": "f-flow-example:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "f-call-center-flow:build"
+            "buildTarget": "f-flow-example:build"
           }
         },
         "test": {
