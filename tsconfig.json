@@ -6,6 +6,20 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "paths": {
+      "@form-builder": [
+        "./projects/form-builder/src/public-api"
+      ],
+      "@infrastructure": [
+        "./projects/infrastructure/src/public-api"
+      ],
+      "@domain": [
+        "./projects/domain/src/public-api"
+      ],
+      "@shared-components": [
+        "./projects/shared-components/src/public-api"
+      ]
+    },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

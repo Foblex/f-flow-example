@@ -1,0 +1,40 @@
+.mat-mdc-form-field {
+  width: 100%;
+  --mat-form-field-container-text-size: 12px;
+  --mat-select-trigger-text-size: 12px;
+
+
+  .mat-mdc-text-field-wrapper {
+    border-radius: 2px 2px 0 0;
+    padding: 0 8px;
+
+    .mat-mdc-form-field-infix {
+      padding: 4px 0;
+      width: 100%;
+      min-height: 32px;
+    }
+  }
+
+  .mat-mdc-form-field-subscript-wrapper {
+    height: 12px;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: #EDEDED;
+  }
+}
+
+.mat-mdc-option {
+  font-size: 12px !important;
+  min-height: 28px !important;
+
+  .mat-pseudo-checkbox {
+    width: 12px;
+    height: 12px;
+
+    &.mat-pseudo-checkbox-checked::after {
+      width: 8px;
+      height: 3px;
+    }
+  }
+}

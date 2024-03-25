@@ -1,0 +1,14 @@
+<header>
+  <input class="toolbar-search" [formControl]="searchControl" placeholder="Type in to search...">
+  <button icon-button (click)="onCreate()">add</button>
+</header>
+
+<div class="list">
+  @for (item of entities$ | async;track item.key) {
+    <div class="explorer-panel-item" [routerLink]="item.key" routerLinkActive="active">
+      <span>{{ item.name }}</span>
+      <div class="flex-space"></div>
+      <button icon-button (click)="onDelete(item, $event)">delete</button>
+    </div>
+  }
+</div>

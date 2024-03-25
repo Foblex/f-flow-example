@@ -1,0 +1,95 @@
+.f-flow {
+
+  .f-connection-center {
+    background-color: var(--gray14);
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    border: 1px solid var(--gray12);
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .f-selection-area {
+    background-color: #248EFF19;
+    border: 1px dashed #248EFF;
+  }
+
+
+  .f-background {
+    line {
+      stroke: var(--gray13);
+    }
+  }
+
+  .f-line-alignment {
+
+    .f-line {
+      background-color:  var(--gray8);
+      width: 100%;
+    }
+  }
+
+  .f-connection {
+
+    #normal_end {
+      fill: var(--gray8);
+    }
+
+    #selected_end {
+      fill: var(--blue3);
+    }
+
+    .f-connection-drag-handle {
+      fill: transparent;
+    }
+
+    .f-connection-selection {
+      stroke: #ffffff73;
+      stroke-width: 20px;
+      fill: none;
+    }
+
+    .f-connection-path {
+      stroke-width: 3px;
+      fill: none;
+      stroke: var(--gray8);
+    }
+
+    &.f-selected {
+      .f-connection-path {
+        stroke: var(--blue3);
+      }
+
+      .f-connection-text {
+        fill: var(--blue3);
+      }
+
+      .f-connection-selection {
+        stroke: #ffffff;
+      }
+    }
+  }
+
+  .f-node {
+    min-width: 240px;
+    position: relative;
+    color: var(--gray4);
+
+    &.f-selected {
+      box-shadow: 0 0 20px var(--gray8)
+    }
+  }
+
+  .f-animated-node {
+    background-color: #248EFF19;
+  }
+
+  .f-animated-connection {
+    stroke: #248EFF19;
+    stroke-width: 12px;
+    fill: none;
+  }
+}
+
+

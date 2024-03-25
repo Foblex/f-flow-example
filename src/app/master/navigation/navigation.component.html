@@ -1,0 +1,9 @@
+@for (item of menu;track item) {
+  <a [routerLink]="item.key" routerLinkActive="active" [attr.disabled]="item.disabled">
+    <mat-icon>{{item.icon}}</mat-icon>
+  </a>
+}
+<div class="flex-space"></div>
+<a routerLink="settings" routerLinkActive="active" [attr.disabled]="true">
+  <mat-icon>settings</mat-icon>
+</a>
