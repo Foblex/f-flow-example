@@ -1,7 +1,7 @@
-import { IKeyNameModel } from '@infrastructure';
 import { INodeModel } from './i-node-model';
+import { IEntitySummary } from '@foblex/ng-clarc';
 
-export interface IFlowModel extends IKeyNameModel<string> {
+export interface IFlowModel extends IEntitySummary<string> {
 
   nodes: INodeModel<string>[];
 }

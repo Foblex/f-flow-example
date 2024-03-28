@@ -1,5 +1,5 @@
 import { BulkRemoveItemsRequest } from './bulk-remove-items-request';
-import { IHandler } from '@infrastructure';
+import { IHandler } from '@foblex/core';
 import { Injectable } from '@angular/core';
 import { IFlowModel } from '../i-flow-model';
 

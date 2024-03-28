@@ -1,9 +1,9 @@
-import { generateId, IHandler } from '@infrastructure';
 import { Injectable } from '@angular/core';
 import { ENodeType } from '../../e-node-type';
 import { INodeModel } from '../../i-node-model';
 import { CreatePlayTextNodeRequest } from './create-play-text-node-request';
-import { EFormBuilderControlType } from '@form-builder';
+import { EFormBuilderControlType } from '@shared-components';
+import { GuidExtensions, IHandler } from '@foblex/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,11 @@ export class CreatePlayTextNodeHandler implements IHandler<CreatePlayTextNodeReq
 
   public handle(request: CreatePlayTextNodeRequest): INodeModel {
     return {
-      key: generateId(ENodeType.PlayText),
+      key: GuidExtensions.generate(),
       description: 'Input Caller Lookup',
-      input: generateId(ENodeType.PlayText) + '_input',
+      input: GuidExtensions.generate() + '_input',
       outputs: [ {
-        key: generateId(ENodeType.PlayText),
+        key: GuidExtensions.generate(),
         name: 'Output Name'
       } ],
       position: request.position,
@@ -25,7 +25,7 @@ export class CreatePlayTextNodeHandler implements IHandler<CreatePlayTextNodeReq
         groups: [ {
           name: 'Text to Play',
           controls: [ {
-            key: generateId('control'),
+            key: GuidExtensions.generate(),
             name: 'Text to Play',
             type: EFormBuilderControlType.TEXTAREA,
             value: 'Please enter the text to play'

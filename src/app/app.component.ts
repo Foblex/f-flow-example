@@ -11,14 +11,6 @@ import { RouterOutlet } from '@angular/router';
     RouterOutlet,
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  constructor(
-
-  ) {
-  }
-
-  public ngOnInit(): void {
-
-  }
 }

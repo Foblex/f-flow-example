@@ -1,7 +1,6 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { CreateFlowAction } from './create/create-flow-action';
 import { CreateFlowHandler } from './create/create-flow-handler';
-import { IKeyNameModel } from '@infrastructure';
 import { Injectable, Injector } from '@angular/core';
 import { IFlowModel } from './i-flow-model';
 import { CreateFlowRequest } from './create/create-flow-request';
@@ -21,6 +20,7 @@ import { ChangeNodeAction } from './node/change/change-node-action';
 import { ChangeNodeHandler } from './node/change/change-node-handler';
 import { ChangeNodeRequest } from './node/change/change-node-request';
 import { RemoveFlowAction } from './remove/remove-flow-action';
+import { IEntitySummary } from '@foblex/ng-clarc';
 
 interface IFlowState {
 
@@ -37,7 +37,7 @@ interface IFlowState {
 export class FlowState {
 
   @Selector()
-  public static summaryList(state: IFlowState): IKeyNameModel<string>[] {
+  public static summaryList(state: IFlowState): IEntitySummary<string>[] {
     return state.flows.map((x) => {
       return {
         key: x.key,

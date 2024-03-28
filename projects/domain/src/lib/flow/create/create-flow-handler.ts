@@ -1,12 +1,12 @@
 import { IFlowModel } from '@domain';
 import { CreateFlowRequest } from './create-flow-request';
-import { generateId, IHandler } from '@infrastructure';
 import { Injectable, Injector } from '@angular/core';
 import { throwError } from 'rxjs';
 import { CreateIncomingCallNodeHandler } from '../node/create-incoming-call-node/create-incoming-call-node-handler';
 import { CreateIncomingCallNodeRequest } from '../node/create-incoming-call-node/create-incoming-call-node-request';
 import { CreateDisconnectNodeHandler } from '../node/create-disconnect-node/create-disconnect-node-handler';
 import { CreateDisconnectNodeRequest } from '../node/create-disconnect-node/create-disconnect-node-request';
+import { IHandler } from '@foblex/core';
 
 @Injectable({
   providedIn: 'root'

@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { MasterComponent } from './master/master.component';
+import { CcMasterComponent } from './master/cc-master.component';
 
 export const routes: Routes = [ {
   path: '',
-  component: MasterComponent,
+  component: CcMasterComponent,
   children: [ {
     path: 'flow',
-    loadComponent: () => import('./flow/components/root/flow-root.component').then(m => m.FlowRootComponent),
+    loadComponent: () => import('@cc-call-configuration').then(m => m.CcCallWorkflowComponent),
     children: [ {
       path: ':key',
-      loadComponent: () => import('./flow/components/editor/flow-editor.component').then(m => m.FlowEditorComponent)
+      loadComponent: () => import('@cc-call-configuration').then(m => m.WorkflowEditorComponent)
     } ]
   } ]
 } ];

@@ -1,4 +1,3 @@
-import { ENodeType } from '../../index';
 import { IPoint } from '@foblex/core';
 
 export class ChangeNodePositionAction {

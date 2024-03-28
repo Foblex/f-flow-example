@@ -1,8 +1,8 @@
-import { generateId, IHandler } from '@infrastructure';
 import { Injectable } from '@angular/core';
 import { ENodeType } from '../../e-node-type';
 import { INodeModel } from '../../i-node-model';
 import { CreateIncomingCallNodeRequest } from './create-incoming-call-node-request';
+import { GuidExtensions, IHandler } from '@foblex/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,9 @@ export class CreateIncomingCallNodeHandler implements IHandler<CreateIncomingCal
 
   public handle(request: CreateIncomingCallNodeRequest): INodeModel {
     return {
-      key: generateId(ENodeType.IncomingCall),
+      key: GuidExtensions.generate(),
       outputs: [ {
-        key: generateId(ENodeType.IncomingCall),
+        key: GuidExtensions.generate(),
         name: ''
       } ],
       position: request.position,

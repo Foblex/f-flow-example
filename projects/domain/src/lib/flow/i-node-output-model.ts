@@ -1,6 +1,6 @@
-import { IKeyNameModel } from '@infrastructure';
+import { IEntitySummary } from '@foblex/ng-clarc';
 
-export interface INodeOutputModel<TKey> extends IKeyNameModel<TKey> {
+export interface INodeOutputModel<TKey> extends IEntitySummary<TKey> {
 
   connectedTo?: TKey
 }

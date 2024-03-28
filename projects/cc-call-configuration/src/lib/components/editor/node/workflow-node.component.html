@@ -1,0 +1,42 @@
+<header fDragHandle>
+  <mat-icon class="node-icon">{{ model.icon }}</mat-icon>
+  <div class="node-info">
+    <span class="node-title">{{ model.name }}</span>
+    <div class="node-description">{{ model.description }}</div>
+  </div>
+
+  <div class="flex-space"></div>
+  @if (model.isExpandable) {
+    <button class="toggle-body-button" [class.opened]="isBodyVisible"
+            (click)="onToggleBodyClick()">
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  }
+</header>
+
+@if(isBodyVisible) {
+  <div class="node-body">
+    <div formBuilder [formControl]="form"></div>
+
+    @for (output of model.outputs;track output.key) {
+      <div class="output-item">
+        <span>{{ output.name }}</span>
+        <div fNodeOutput [fOutputId]="output.key" [fOutputConnectableSide]="eFConnectableSide.RIGHT" [isSelfConnectable]="false" (click)="onRemoveConnection(output.key)">
+          <mat-icon>close</mat-icon>
+        </div>
+      </div>
+    }
+  </div>
+
+}
+
+@if(!isBodyVisible) {
+    <footer>
+        @for (output of outputs; track output.key) {
+          <div fNodeOutput [fOutputConnectableSide]="eFConnectableSide.BOTTOM" [fOutputId]="output.key" [isSelfConnectable]="false" (click)="onRemoveConnection(output.key)">
+            <mat-icon>close</mat-icon>
+          </div>
+        }
+    </footer>
+}
+
