@@ -80,7 +80,6 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
 
   public eMarkerType = EFMarkerType;
 
-
   public eConnectableSide = EFConnectableSide;
 
   public cBehavior: EFConnectionBehavior = EFConnectionBehavior.FIXED;

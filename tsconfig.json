@@ -7,6 +7,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "paths": {
+      "@foblex/flow": [
+        "./projects/f-flow/src/public-api"
+      ],
       "@domain": [
         "./projects/domain/src/public-api"
       ],
