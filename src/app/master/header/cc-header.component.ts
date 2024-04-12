@@ -14,4 +14,8 @@ import { NgOptimizedImage } from '@angular/common';
   ]
 })
 export class CcHeaderComponent {
+
+  public onGitHubClick(): void {
+    window.open('https://github.com/Foblex/f-flow-example', '_blank');
+  }
 }
