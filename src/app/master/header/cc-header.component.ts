@@ -19,3 +19,4 @@ export class CcHeaderComponent {
     window.open('https://github.com/Foblex/f-flow-example', '_blank');
   }
 }
+

@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgxsModule } from '@ngxs/store';
-import { FlowState } from '../../projects/domain/src/lib/flow';
+import { FlowState } from '@domain';
 
 export const appConfig: ApplicationConfig = {
   providers: [

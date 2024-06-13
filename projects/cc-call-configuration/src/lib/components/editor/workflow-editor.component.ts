@@ -12,7 +12,7 @@ import {
   FCreateConnectionEvent, FCreateNodeEvent,
   FFlowComponent,
   FFlowModule,
-  FReassignConnectionEvent, FZoomDirective
+  FReassignConnectionEvent, FZoomDirective,
 } from '@foblex/flow';
 import { IPoint, MouseEventExtensions, Point } from '@foblex/core';
 import { MatIcon } from '@angular/material/icon';
@@ -151,6 +151,9 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   public onCreateConnection(event: FCreateConnectionEvent): void {
+    if (!event.fInputId) {
+      return;
+    }
     this.viewModel = this.injector.get(CreateConnectionHandler).handle(
       new CreateConnectionRequest(this.viewModel!, event.fOutputId, event.fInputId)
     );
