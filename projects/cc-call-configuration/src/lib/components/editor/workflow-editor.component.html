@@ -8,7 +8,7 @@
           (fReassignConnection)="onReassignConnection($event)"
           (fCreateNode)="onCreateNode($event)">
     <f-background>
-      <f-cell-pattern></f-cell-pattern>
+      <f-circle-pattern></f-circle-pattern>
     </f-background>
     <f-line-alignment></f-line-alignment>
     <f-selection-area></f-selection-area>
@@ -56,10 +56,3 @@
     </f-canvas>
   </f-flow>
 }
-
-<ng-template>
-  <svg id="normal_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.END" [height]="5" [width]="5" [refX]="4"
-       [refY]="2.5">
-    <path d="M0,0L700,350L0,700L150,350z"/>
-  </svg>
-</ng-template>

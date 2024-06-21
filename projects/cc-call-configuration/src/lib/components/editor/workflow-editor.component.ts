@@ -245,7 +245,7 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
         break;
       case A:
         if (MouseEventExtensions.isCommandButton(event)) {
-          this.fFlowComponent.selectAll()
+          this.fFlowComponent.selectAll();
         }
         break;
     }
