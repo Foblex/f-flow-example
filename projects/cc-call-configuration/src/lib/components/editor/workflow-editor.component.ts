@@ -38,6 +38,7 @@ import { Store } from '@ngxs/store';
 import { ChangeNodePositionAction, CreateNodeAction, INodeValueModel } from '@domain';
 import { EFlowActionPanelEvent } from './action-panel/e-flow-action-panel-event';
 import { A, BACKSPACE, DASH, DELETE, NUMPAD_MINUS, NUMPAD_PLUS } from '@angular/cdk/keycodes';
+import { BrowserService, EOperationSystem, PlatformService } from '@foblex/platform';
 
 @Component({
   selector: 'workflow-editor',
@@ -101,7 +102,8 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
     private router: Router,
     private injector: Injector,
     private activatedRoute: ActivatedRoute,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private fPlatform: PlatformService
   ) {
   }
 
@@ -233,18 +235,18 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
         this.onRemoveItems();
         break;
       case NUMPAD_PLUS:
-        if (MouseEventExtensions.isCommandButton(event)) {
+        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
           this.fZoomDirective.zoomIn();
         }
         break;
       case NUMPAD_MINUS:
       case DASH:
-        if (MouseEventExtensions.isCommandButton(event)) {
+        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
           this.fZoomDirective.zoomOut();
         }
         break;
       case A:
-        if (MouseEventExtensions.isCommandButton(event)) {
+        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
           this.fFlowComponent.selectAll();
         }
         break;
