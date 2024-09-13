@@ -14,7 +14,7 @@ import {
   FFlowModule,
   FReassignConnectionEvent, FZoomDirective,
 } from '@foblex/flow';
-import { IPoint, MouseEventExtensions, Point } from '@foblex/core';
+import { IPoint, Point } from '@foblex/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -38,7 +38,7 @@ import { Store } from '@ngxs/store';
 import { ChangeNodePositionAction, CreateNodeAction, INodeValueModel } from '@domain';
 import { EFlowActionPanelEvent } from './action-panel/e-flow-action-panel-event';
 import { A, BACKSPACE, DASH, DELETE, NUMPAD_MINUS, NUMPAD_PLUS } from '@angular/cdk/keycodes';
-import { BrowserService, EOperationSystem, PlatformService } from '@foblex/platform';
+import { EOperationSystem, PlatformService } from '@foblex/platform';
 
 @Component({
   selector: 'workflow-editor',
@@ -235,22 +235,26 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
         this.onRemoveItems();
         break;
       case NUMPAD_PLUS:
-        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
+        if (this.isCommandButton(event)) {
           this.fZoomDirective.zoomIn();
         }
         break;
       case NUMPAD_MINUS:
       case DASH:
-        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
+        if (this.isCommandButton(event)) {
           this.fZoomDirective.zoomOut();
         }
         break;
       case A:
-        if (MouseEventExtensions.isCommandButton(this.fPlatform.getOS() as EOperationSystem, event)) {
+        if (this.isCommandButton(event)) {
           this.fFlowComponent.selectAll();
         }
         break;
     }
+  }
+
+  private isCommandButton(event: { metaKey: boolean, ctrlKey: boolean }): boolean {
+    return this.fPlatform.getOS() === EOperationSystem.MAC_OS ? event.metaKey : event.ctrlKey;
   }
 
   public ngOnDestroy(): void {
