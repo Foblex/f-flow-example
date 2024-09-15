@@ -3,7 +3,8 @@ import { ENodeType } from '../../e-node-type';
 import { INodeModel } from '../../i-node-model';
 import { CreateIvrNodeRequest } from './create-ivr-node-request';
 import { EFormBuilderControlType } from '@shared-components';
-import { GuidExtensions, IHandler } from '@foblex/core';
+import { generateGuid } from '@foblex/utils';
+import { IHandler } from '@foblex/mediator';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,17 @@ export class CreateIvrNodeHandler implements IHandler<CreateIvrNodeRequest, INod
 
   public handle(request: CreateIvrNodeRequest): INodeModel {
     return {
-      key: GuidExtensions.generate(),
+      key: generateGuid(),
       description: 'Input Caller Lookup',
-      input: GuidExtensions.generate() + '_input',
+      input: generateGuid() + '_input',
       outputs: [ {
-        key: GuidExtensions.generate(),
+        key: generateGuid(),
         name: 'Output 1',
       }, {
-        key: GuidExtensions.generate(),
+        key: generateGuid(),
         name: 'Output 2'
       }, {
-        key: GuidExtensions.generate(),
+        key: generateGuid(),
         name: 'Output 3'
       } ],
       position: request.position,
@@ -31,7 +32,7 @@ export class CreateIvrNodeHandler implements IHandler<CreateIvrNodeRequest, INod
         groups: [ {
           name: 'Select Number of Outputs',
           controls: [ {
-            key: GuidExtensions.generate(),
+            key: generateGuid(),
             name: 'Outputs',
             type: EFormBuilderControlType.OUTPUTS_SELECT,
             value: 3,

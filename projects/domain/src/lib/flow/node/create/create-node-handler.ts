@@ -1,5 +1,5 @@
 import { CreateNodeRequest } from './create-node-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { Injectable, Injector } from '@angular/core';
 import { ENodeType, IFlowModel, INodeModel } from '../../index';
 import { CreateIncomingCallNodeHandler } from '../create-incoming-call-node/create-incoming-call-node-handler';

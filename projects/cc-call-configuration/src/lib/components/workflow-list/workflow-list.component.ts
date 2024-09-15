@@ -14,7 +14,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { IconButtonComponent } from '@shared-components';
 import { IEntitySummary } from '@foblex/ng-clarc';
-import { GuidExtensions } from '@foblex/core';
+import { generateGuid } from '@foblex/utils';
 
 const entityName = 'flow';
 
@@ -93,7 +93,7 @@ export class WorkflowListComponent implements OnInit, OnDestroy {
   }
 
   public onCreate(): void {
-    const key = GuidExtensions.generate();
+    const key = generateGuid();
     this.store.dispatch(new CreateFlowAction(key, entityName + Date.now())).pipe(take(1)).subscribe(() => {
       this.navigateToEntity(key);
       this.getData();

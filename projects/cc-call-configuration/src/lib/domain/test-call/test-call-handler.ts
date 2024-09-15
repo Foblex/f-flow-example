@@ -1,5 +1,5 @@
 import { TestCallRequest } from './test-call-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { ENodeType } from '@domain';
 import { Injectable } from '@angular/core';
 import { FFlowAnimatorService } from '@foblex/flow-animator';

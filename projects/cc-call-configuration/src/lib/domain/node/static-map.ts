@@ -1,5 +1,4 @@
 import { ENodeType } from '@domain';
-import { IMap } from '@foblex/core';
 import { INodeStaticMapItem } from './i-node-static-map-item';
 
 export const NODE_STATIC_MAP: IMap<INodeStaticMapItem> = {
@@ -35,3 +34,6 @@ export const NODE_STATIC_MAP: IMap<INodeStaticMapItem> = {
     isExpandable: false,
   },
 };
+interface IMap<T = string> {
+  [ key: string ]: T;
+}

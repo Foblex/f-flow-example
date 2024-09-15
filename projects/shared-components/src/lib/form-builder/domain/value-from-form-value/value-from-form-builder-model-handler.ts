@@ -1,6 +1,6 @@
 import { ValueFromFormBuilderModelRequest } from './value-from-form-builder-model-request';
 import { IFormBuilderValue } from '../external-value';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 
 export class ValueFromFormBuilderModelHandler implements IHandler<ValueFromFormBuilderModelRequest, IFormBuilderValue> {
 

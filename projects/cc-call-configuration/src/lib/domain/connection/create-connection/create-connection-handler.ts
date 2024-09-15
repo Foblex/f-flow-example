@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { IConnectionViewModel } from '../i-connection-view-model';
 import { IFlowViewModel } from '../../i-flow-view-model';
-import { GuidExtensions, IHandler } from '@foblex/core';
+import { generateGuid } from '@foblex/utils';
+import { IHandler } from '@foblex/mediator';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class CreateConnectionHandler implements IHandler<CreateConnectionRequest
 
   private createConnection(outputKey: string, inputKey: string, outputName: string): IConnectionViewModel {
     const result = {
-      key: GuidExtensions.generate(),
+      key: generateGuid(),
       from: outputKey,
       to: inputKey,
       name: outputName

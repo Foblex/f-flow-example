@@ -1,5 +1,5 @@
 import { IFlowModel } from '../../index';
-import { IPoint } from '@foblex/core';
+import { IPoint } from '@foblex/2d';
 
 export class ChangeNodePositionRequest {
 

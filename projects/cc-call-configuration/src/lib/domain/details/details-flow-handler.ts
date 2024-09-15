@@ -1,5 +1,5 @@
 import { DetailsFlowRequest } from './details-flow-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { IFlowModel } from '@domain';

@@ -1,4 +1,4 @@
-import { IPoint } from '@foblex/core';
+import { IPoint } from '@foblex/2d';
 import { ENodeType, INodeValueModel } from '@domain';
 import { IEntitySummary } from '@foblex/ng-clarc';
 

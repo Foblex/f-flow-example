@@ -14,7 +14,7 @@ import {
   FFlowModule,
   FReassignConnectionEvent, FZoomDirective,
 } from '@foblex/flow';
-import { IPoint, Point } from '@foblex/core';
+import { IPoint, Point } from '@foblex/2d';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';

@@ -6,7 +6,7 @@ import { IFlowViewModel } from '../../i-flow-view-model';
 import { EFormBuilderControlType } from '@shared-components';
 import { INodeViewModel } from '../i-node-view-model';
 import { IConnectionViewModel } from '../../connection';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { IEntitySummary } from '@foblex/ng-clarc';
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { ChangeNodePositionRequest } from './change-node-position-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { Injectable } from '@angular/core';
 import { IFlowModel } from '../../index';
 

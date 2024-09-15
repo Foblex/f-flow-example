@@ -1,5 +1,5 @@
 import { MapToNodeViewModelRequest } from './map-to-node-view-model-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { INodeModel } from '@domain';
 import { NODE_STATIC_MAP } from '../static-map';
 import { INodeViewModel } from '../i-node-view-model';

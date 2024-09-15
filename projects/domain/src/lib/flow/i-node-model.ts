@@ -1,4 +1,4 @@
-import { IPoint } from '@foblex/core';
+import { IPoint } from '@foblex/2d';
 import { ENodeType } from './e-node-type';
 import { INodeValueModel } from './i-node-value-model';
 import { INodeOutputModel } from './i-node-output-model';

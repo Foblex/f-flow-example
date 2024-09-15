@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { CreateDisconnectNodeRequest } from './create-disconnect-node-request';
 import { ENodeType } from '../../e-node-type';
 import { INodeModel } from '../../i-node-model';
-import { GuidExtensions, IHandler } from '@foblex/core';
+import { generateGuid } from '@foblex/utils';
+import { IHandler } from '@foblex/mediator';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class CreateDisconnectNodeHandler implements IHandler<CreateDisconnectNod
 
   public handle(request: CreateDisconnectNodeRequest): INodeModel {
     return {
-      key: GuidExtensions.generate(),
-      input: GuidExtensions.generate() + '_input',
+      key: generateGuid(),
+      input: generateGuid() + '_input',
       outputs: [],
       position: request.position,
       type: ENodeType.Disconnect,

@@ -4,7 +4,7 @@ import { FormBuilderModelFromValueResponse } from './form-builder-model-from-val
 import { IBuilderValueControlViewModel } from '../i-builder-value-control-view-model';
 import { IBuilderValueGroupViewModel } from '../i-builder-value-group-view-model';
 import { IFormBuilderValueControl } from '../external-value';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 
 export class FormBuilderModelFromValueHandler implements IHandler<FormBuilderModelFromValueRequest, FormBuilderModelFromValueResponse> {
 

@@ -6,7 +6,7 @@ import { CreateIncomingCallNodeHandler } from '../node/create-incoming-call-node
 import { CreateIncomingCallNodeRequest } from '../node/create-incoming-call-node/create-incoming-call-node-request';
 import { CreateDisconnectNodeHandler } from '../node/create-disconnect-node/create-disconnect-node-handler';
 import { CreateDisconnectNodeRequest } from '../node/create-disconnect-node/create-disconnect-node-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 
 @Injectable({
   providedIn: 'root'

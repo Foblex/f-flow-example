@@ -1,5 +1,5 @@
 import { MapToFlowViewModelRequest } from './map-to-flow-view-model-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { IFlowModel } from '@domain';
 import { IFlowViewModel } from '../i-flow-view-model';
 import { IConnectionViewModel, MapToConnectionViewModelHandler, MapToConnectionViewModelRequest } from '../connection';

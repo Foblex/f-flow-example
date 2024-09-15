@@ -1,5 +1,5 @@
 import { BulkRemoveRequest } from './bulk-remove-request';
-import { IHandler } from '@foblex/core';
+import { IHandler } from '@foblex/mediator';
 import { Injectable } from '@angular/core';
 import { IFlowViewModel } from '../i-flow-view-model';
 import { Store } from '@ngxs/store';
