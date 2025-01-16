@@ -163,6 +163,9 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   public onReassignConnection(event: FReassignConnectionEvent): void {
+    if(!event.newFInputId) {
+      return;
+    }
     this.viewModel = this.injector.get(ReassignConnectionHandler).handle(
       new ReassignConnectionRequest(this.viewModel!, event.fOutputId, event.oldFInputId, event.newFInputId)
     );
@@ -220,7 +223,7 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
         this.fCanvasComponent.fitToScreen();
         break;
       case EFlowActionPanelEvent.ONE_TO_ONE:
-        this.fCanvasComponent.oneToOne();
+        this.fCanvasComponent.resetScaleAndCenter();
         break;
     }
   }
