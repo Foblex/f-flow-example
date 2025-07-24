@@ -8,8 +8,6 @@ export enum EFlowActionPanelEvent {
 
   FIT_TO_SCREEN = 'FIT_TO_SCREEN',
 
-  TEST_CALL = 'TEST_CALL',
-
   SELECT_ALL = 'SELECT_ALL',
 
   DELETE_SELECTED = 'DELETE_SELECTED',

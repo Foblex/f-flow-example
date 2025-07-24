@@ -31,7 +31,7 @@ import {
   DetailsFlowHandler,
   DetailsFlowRequest,
   IFlowViewModel,
-  INodeViewModel, ReassignConnectionHandler, ReassignConnectionRequest, TestCallHandler, TestCallRequest
+  INodeViewModel, ReassignConnectionHandler, ReassignConnectionRequest,
 } from '../../domain';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
@@ -49,14 +49,8 @@ import { EOperationSystem, PlatformService } from '@foblex/platform';
   imports: [
     FFlowModule,
     WorkflowNodeComponent,
-    MatIcon,
-    MatIconButton,
     WorkflowActionPanelComponent,
     WorkflowPaletteComponent,
-    MatFormField,
-    MatLabel,
-    MatOption,
-    MatSelect,
     FormsModule
   ],
   host: {
@@ -163,11 +157,11 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   public onReassignConnection(event: FReassignConnectionEvent): void {
-    if(!event.newFInputId) {
+    if(!event.newTargetId) {
       return;
     }
     this.viewModel = this.injector.get(ReassignConnectionHandler).handle(
-      new ReassignConnectionRequest(this.viewModel!, event.fOutputId, event.oldFInputId, event.newFInputId)
+      new ReassignConnectionRequest(this.viewModel!, event.oldSourceId, event.oldTargetId, event.newTargetId)
     );
     this.changeDetectorRef.detectChanges();
   }
@@ -184,7 +178,7 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
   public onRemoveItems(): void {
     const selection = this.fFlowComponent.getSelection();
     this.viewModel = this.injector.get(BulkRemoveHandler).handle(
-      new BulkRemoveRequest(this.viewModel!, selection.nodes, selection.connections)
+      new BulkRemoveRequest(this.viewModel!, selection.fNodeIds, selection.fConnectionIds)
     );
     this.changeDetectorRef.detectChanges();
   }
@@ -198,15 +192,12 @@ export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy
 
     this.changeDetectorRef.detectChanges();
     setTimeout(() => {
-      this.fFlowComponent.select(selected.nodes, selected.connections);
+      this.fFlowComponent.select(selected.fNodeIds, selected.fConnectionIds);
     });
   }
 
   public onActionPanelEvent(event: EFlowActionPanelEvent): void {
     switch (event) {
-      case EFlowActionPanelEvent.TEST_CALL:
-        this.injector.get(TestCallHandler).handle(new TestCallRequest(this.viewModel!));
-        break;
       case EFlowActionPanelEvent.DELETE_SELECTED:
         this.onRemoveItems();
         break;

@@ -11,7 +11,6 @@ import { MatTooltip } from '@angular/material/tooltip';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    MatIcon,
     IconButtonComponent,
     MatTooltip
   ]

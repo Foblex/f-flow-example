@@ -1,8 +1,10 @@
 import { IPoint } from '@foblex/2d';
 import { ENodeType, INodeValueModel } from '@domain';
-import { IEntitySummary } from '@foblex/ng-clarc';
 
-export interface INodeViewModel<TKey = string> extends IEntitySummary<TKey> {
+export interface INodeViewModel<TKey = string> {
+
+  key: TKey;
+  name: string;
 
   color: string;
 
@@ -14,7 +16,10 @@ export interface INodeViewModel<TKey = string> extends IEntitySummary<TKey> {
 
   isExpandable: boolean;
 
-  outputs: IEntitySummary<TKey>[];
+  outputs: {
+    key: TKey;
+    name: string;
+  }[];
 
   input?: TKey;
 

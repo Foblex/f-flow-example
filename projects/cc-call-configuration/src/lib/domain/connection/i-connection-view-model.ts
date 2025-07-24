@@ -1,6 +1,8 @@
-import { IEntitySummary } from '@foblex/ng-clarc';
+export interface IConnectionViewModel<TKey = string> {
 
-export interface IConnectionViewModel<TKey = string> extends IEntitySummary<TKey> {
+  key: string;
+
+  name: string;
 
   from: TKey;
 

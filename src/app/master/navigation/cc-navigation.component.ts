@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
-import { IEntitySummary } from '@foblex/ng-clarc';
 
-interface INavigationItem extends IEntitySummary<string> {
+interface INavigationItem {
+  key: string;
+  name: string;
   icon: string;
   disabled: boolean;
 }

@@ -1,7 +1,10 @@
 import { INodeModel } from './i-node-model';
-import { IEntitySummary } from '@foblex/ng-clarc';
 
-export interface IFlowModel extends IEntitySummary<string> {
+export interface IFlowModel {
+
+  key: string;
+
+  name: string;
 
   nodes: INodeModel<string>[];
 }

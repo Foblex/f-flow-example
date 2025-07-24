@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {Store} from '@ngxs/store';
 import {
   filter,
   Observable, of, startWith,
@@ -7,21 +7,20 @@ import {
   switchMap,
   take
 } from 'rxjs';
-import { CreateFlowAction, RemoveFlowAction, FlowState } from '@domain';
-import { AsyncPipe } from '@angular/common';
-import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
-import { IconButtonComponent } from '@shared-components';
-import { IEntitySummary } from '@foblex/ng-clarc';
-import { generateGuid } from '@foblex/utils';
+import {CreateFlowAction, RemoveFlowAction, FlowState} from '@domain';
+import {AsyncPipe} from '@angular/common';
+import {NavigationEnd, Router, RouterLink, RouterLinkActive} from '@angular/router';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {MatIcon} from '@angular/material/icon';
+import {IconButtonComponent} from '@shared-components';
+import {generateGuid} from '@foblex/utils';
 
 const entityName = 'flow';
 
 @Component({
   selector: 'workflow-list',
   templateUrl: './workflow-list.component.html',
-  styleUrls: [ './workflow-list.component.scss' ],
+  styleUrls: ['./workflow-list.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
@@ -29,7 +28,6 @@ const entityName = 'flow';
     RouterLink,
     RouterLinkActive,
     ReactiveFormsModule,
-    MatIcon,
     IconButtonComponent
   ]
 })
@@ -39,9 +37,15 @@ export class WorkflowListComponent implements OnInit, OnDestroy {
 
   public searchControl = new FormControl('');
 
-  private entities: IEntitySummary<string>[] = [];
+  private entities: {
+    key: string;
+    name: string;
+  }[] = [];
 
-  public entities$: Observable<IEntitySummary<string>[]> = this.searchControl.valueChanges.pipe(
+  public entities$: Observable<{
+    key: string;
+    name: string;
+  }[]> = this.searchControl.valueChanges.pipe(
     startWith(''), switchMap((search) => {
       return of(this.entities.filter(entity => entity.name.toLowerCase().includes(search?.toLowerCase() || '')));
     })
@@ -88,7 +92,7 @@ export class WorkflowListComponent implements OnInit, OnDestroy {
 
   private toDefaultFlow(): void {
     if (this.entities.length > 0) {
-      this.navigateToEntity(this.entities[ 0 ].key);
+      this.navigateToEntity(this.entities[0].key);
     }
   }
 
@@ -100,7 +104,10 @@ export class WorkflowListComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onDelete(entity: IEntitySummary<string>, event: MouseEvent): void {
+  public onDelete(entity: {
+    key: string;
+    name: string;
+  }, event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
     this.store.dispatch(new RemoveFlowAction(entity.key)).pipe(take(1)).subscribe(() => {

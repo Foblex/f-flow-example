@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { MatFormField } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatOption } from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
-import { IBuilderValueControlViewModel } from '../../domain/i-builder-value-control-view-model';
-import { IEntitySummary } from '@foblex/ng-clarc';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {MatFormField} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatOption} from '@angular/material/autocomplete';
+import {MatSelect} from '@angular/material/select';
+import {IBuilderValueControlViewModel} from '../../domain/i-builder-value-control-view-model';
 
 @Component({
   selector: 'outputs-select-control',
@@ -20,10 +19,13 @@ import { IEntitySummary } from '@foblex/ng-clarc';
 })
 export class OutputsSelectControlComponent {
 
-  @Input({ required: true })
+  @Input({required: true})
   public viewModel!: IBuilderValueControlViewModel;
 
-  protected options: IEntitySummary<number>[] = [ {
+  protected options: {
+    key: number,
+    name: string
+  }[] = [{
     key: 1,
     name: '1'
   }, {
@@ -50,5 +52,5 @@ export class OutputsSelectControlComponent {
   }, {
     key: 9,
     name: '9'
-  } ];
+  }];
 }

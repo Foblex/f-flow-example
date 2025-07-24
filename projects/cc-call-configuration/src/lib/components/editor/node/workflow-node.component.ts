@@ -8,19 +8,18 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { EFConnectableSide, FFlowModule } from '@foblex/flow';
-import { MatIcon } from '@angular/material/icon';
-import { FormBuilderDirective } from '@shared-components';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { INodeValueModel } from '@domain';
-import { IEntitySummary } from '@foblex/ng-clarc';
-import { INodeViewModel } from '../../../domain';
+import {EFConnectableSide, FFlowModule} from '@foblex/flow';
+import {MatIcon} from '@angular/material/icon';
+import {FormBuilderDirective} from '@shared-components';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {Subscription} from 'rxjs';
+import {INodeValueModel} from '@domain';
+import {INodeViewModel} from '../../../domain';
 
 @Component({
   selector: 'workflow-node',
   templateUrl: './workflow-node.component.html',
-  styleUrls: [ './workflow-node.component.scss' ],
+  styleUrls: ['./workflow-node.component.scss'],
   standalone: true,
   imports: [
     FFlowModule,
@@ -42,14 +41,17 @@ export class WorkflowNodeComponent implements OnInit, OnChanges, OnDestroy {
   @Output()
   public removeConnection: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input({ required: true })
+  @Input({required: true})
   public model!: INodeViewModel;
 
   public isBodyVisible: boolean = false;
 
   public eFConnectableSide = EFConnectableSide;
 
-  public outputs: IEntitySummary<string>[] = [];
+  public outputs: {
+    key: string;
+    name: string;
+  }[] = [];
 
   public form: FormControl = new FormControl();
 

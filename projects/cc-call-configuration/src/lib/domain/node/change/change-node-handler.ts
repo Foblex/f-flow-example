@@ -1,13 +1,12 @@
-import { ChangeNodeRequest } from './change-node-request';
-import { ChangeNodeAction, INodeOutputModel, INodeValueModel } from '@domain';
-import { Injectable } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { IFlowViewModel } from '../../i-flow-view-model';
-import { EFormBuilderControlType } from '@shared-components';
-import { INodeViewModel } from '../i-node-view-model';
-import { IConnectionViewModel } from '../../connection';
-import { IHandler } from '@foblex/mediator';
-import { IEntitySummary } from '@foblex/ng-clarc';
+import {ChangeNodeRequest} from './change-node-request';
+import {ChangeNodeAction, INodeOutputModel, INodeValueModel} from '@domain';
+import {Injectable} from '@angular/core';
+import {Store} from '@ngxs/store';
+import {IFlowViewModel} from '../../i-flow-view-model';
+import {EFormBuilderControlType} from '@shared-components';
+import {INodeViewModel} from '../i-node-view-model';
+import {IConnectionViewModel} from '../../connection';
+import {IHandler} from '@foblex/mediator';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +24,19 @@ export class ChangeNodeHandler implements IHandler<ChangeNodeRequest, IFlowViewM
 
     const index = flow.nodes.findIndex((x: INodeViewModel) => x.key === request.node.key);
 
-    flow.nodes[ index ] = request.node;
+    flow.nodes[index] = request.node;
 
-    const outputsNumberValue = this.findOutputsNumberValue(flow.nodes[ index ].value);
+    const outputsNumberValue = this.findOutputsNumberValue(flow.nodes[index].value);
     if (outputsNumberValue) {
-      flow.nodes[ index ].outputs = this.mergeOutputsWithNumber(flow, flow.nodes[ index ], outputsNumberValue);
+      flow.nodes[index].outputs = this.mergeOutputsWithNumber(flow, flow.nodes[index], outputsNumberValue);
     }
 
-    const node = flow.nodes[ index ];
+    const node = flow.nodes[index];
 
-    const outputs: INodeOutputModel<string>[] = node.outputs.map((x: IEntitySummary<string>) => {
+    const outputs: INodeOutputModel<string>[] = node.outputs.map((x: {
+      key: string;
+      name: string;
+    }) => {
       return {
         key: x.key,
         name: x.name,
@@ -59,7 +61,10 @@ export class ChangeNodeHandler implements IHandler<ChangeNodeRequest, IFlowViewM
     return result;
   }
 
-  private mergeOutputsWithNumber(flow: IFlowViewModel, node: INodeViewModel, outputsNumber: number): IEntitySummary<string>[] {
+  private mergeOutputsWithNumber(flow: IFlowViewModel, node: INodeViewModel, outputsNumber: number): {
+    key: string;
+    name: string;
+  }[] {
     const outputs = node.outputs.slice(0, outputsNumber);
 
     const outputsToRemove = node.outputs.slice(outputsNumber);
@@ -71,7 +76,7 @@ export class ChangeNodeHandler implements IHandler<ChangeNodeRequest, IFlowViewM
 
     if (outputs.length < outputsNumber) {
       for (let i = outputs.length; i < outputsNumber; i++) {
-        outputs.push({ key: `output-${ i }`, name: `Output ${ i }` });
+        outputs.push({key: `output-${i}`, name: `Output ${i}`});
       }
     }
     return outputs;
