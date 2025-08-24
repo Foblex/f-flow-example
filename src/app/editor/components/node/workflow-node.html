@@ -1,0 +1,43 @@
+@let model = viewModel();
+
+<header fDragHandle>
+  <mat-icon class="node-icon">{{ defaultParams[model.type].icon }}</mat-icon>
+  <div class="node-info">
+    <span class="node-title">{{ defaultParams[model.type].name }}</span>
+    <div class="node-description">{{ model.description }}</div>
+  </div>
+
+  <div class="flex-space"></div>
+  @if (defaultParams[model.type].isExpandable) {
+    <button class="toggle-body-button" [class.opened]="isExpanded()"
+            (click)="toggle()">
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  }
+</header>
+
+@if (isExpanded()) {
+  <div class="node-body">
+    <div formBuilder [formControl]="form"></div>
+
+    @for (output of model.outputs; track output.id) {
+      <div class="output-item">
+        <span>{{ output.label }}</span>
+        <div fNodeOutput [fOutputId]="output.id" fOutputConnectableSide="right"
+             [isSelfConnectable]="false" (click)="removeConnection.emit(output.id)">
+          <mat-icon>close</mat-icon>
+        </div>
+      </div>
+    }
+  </div>
+} @else {
+  <footer>
+    @for (output of outputs; track output.id) {
+      <div fNodeOutput fOutputConnectableSide="bottom" [fOutputId]="output.id"
+           [isSelfConnectable]="false" (click)="removeConnection.emit(output.id)">
+        <mat-icon>close</mat-icon>
+      </div>
+    }
+  </footer>
+}
+

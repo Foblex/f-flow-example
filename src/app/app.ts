@@ -1,18 +1,14 @@
-import {
-  Component, OnInit
-} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {WorkflowEditorComponent} from "@cc-call-configuration";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {WorkflowEditor} from "./editor";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    RouterOutlet,
-    WorkflowEditorComponent,
+    WorkflowEditor,
   ]
 })
 export class App {
-
 }
