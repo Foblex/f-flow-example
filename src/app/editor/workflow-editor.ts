@@ -8,7 +8,7 @@ import {
   FCreateConnectionEvent, FCreateNodeEvent,
   FFlowComponent,
   FFlowModule, FMoveNodesEvent,
-  FReassignConnectionEvent, FSelectionChangeEvent, FZoomDirective,
+  FReassignConnectionEvent, FSelectionChangeEvent, FZoomDirective, ICurrentSelection,
 } from '@foblex/flow';
 import {FormsModule} from '@angular/forms';
 import {WorkflowNode} from './components/node/workflow-node';
@@ -169,10 +169,15 @@ export class WorkflowEditor implements OnInit {
     // });
   }
 
+  private _selectAll(): void {
+    this._flow()?.selectAll();
+    this._apiService.selectAll(this.viewModel()!);
+  }
+
   protected onActionPanelEvent(event: EFlowActionPanelEvent): void {
     switch (event) {
       case EFlowActionPanelEvent.SELECT_ALL:
-        this._flow()?.selectAll();
+        this._selectAll();
         break;
       case EFlowActionPanelEvent.ZOOM_IN:
         this._zoom()?.zoomIn();
@@ -211,7 +216,7 @@ export class WorkflowEditor implements OnInit {
         break;
       case A:
         if (this._isCommandButton(event)) {
-          this._flow()?.selectAll();
+          this._selectAll();
         }
         break;
     }

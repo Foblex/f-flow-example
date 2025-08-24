@@ -128,6 +128,15 @@ export class FlowApiService {
     });
   }
 
+  public selectAll(state: IFlowState): void {
+    this._state.update({
+      selection: {
+        nodes: [...Object.keys(state.nodes)],
+        connections: [...Object.keys(state.connections)]
+      }
+    });
+  }
+
   public removeConnection(outputId: string, state: IFlowState): void {
     const id = Object.values(state.connections).find(x => x.source === outputId)?.id;
 

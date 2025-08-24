@@ -25,7 +25,8 @@
                       [fConnectionId]="connection.id"
                       [fOffset]="32"
                       fType="segment"
-                      [fOutputId]="connection.source" [fInputId]="connection.target">
+                      [fOutputId]="connection.source"
+                      [fInputId]="connection.target">
           <svg id="normal_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.END" [height]="5" [width]="5"
                [refX]="4" [refY]="2.5">
             <path d="M0,0L700,350L0,700L150,350z"/>
@@ -35,14 +36,9 @@
                [width]="5" [refX]="4" [refY]="2.5">
             <path d="M0,0L700,350L0,700L150,350z"/>
           </svg>
-          <!--          @if (!!connection.name) {-->
-          <!--            <div fConnectionCenter>-->
-          <!--              {{ connection.name }}-->
-          <!--            </div>-->
-          <!--          }-->
         </f-connection>
       }
-      <f-connection-for-create fType="segment">
+      <f-connection-for-create fType="segment" [fOffset]="32">
         <svg id="normal_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.END" [height]="5" [width]="5" [refX]="4"
              [refY]="2.5">
           <path d="M0,0L700,350L0,700L150,350z"/>
