@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy, ChangeDetectorRef,
-  Component, Injector, OnDestroy, OnInit,
+  Component, Injector, OnDestroy, OnInit, viewChild,
   ViewChild,
 } from '@angular/core';
 import {
@@ -60,14 +60,11 @@ import { EOperationSystem, PlatformService } from '@foblex/platform';
 })
 export class WorkflowEditorComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  private subscriptions$: Subscription = new Subscription();
-
   public viewModel: IFlowViewModel | undefined;
 
-  @ViewChild(FFlowComponent, { static: false })
-  public fFlowComponent!: FFlowComponent;
+  private readonly _flow = viewChild.required(FFlowComponent);
+  private readonly _canvas = viewChild.required(FCanvasComponent);
 
-  @ViewChild(FCanvasComponent, { static: false })
   public fCanvasComponent!: FCanvasComponent;
 
   @ViewChild(FZoomDirective, { static: false })
