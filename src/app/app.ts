@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {WorkflowEditor} from "./editor";
+import {Flow} from "./components/flow";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {WorkflowEditor} from "./editor";
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    WorkflowEditor,
+    Flow,
   ]
 })
 export class App {

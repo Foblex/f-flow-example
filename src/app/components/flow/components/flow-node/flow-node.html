@@ -1,0 +1,19 @@
+@let model = viewModel();
+
+<flow-node-header [(expanded)]="expanded" (expandedChange)="toggle($event)" [type]="model.type"
+                  [description]="model.description" fDragHandle/>
+@if (expanded()) {
+  @switch (model.type) {
+    @case (nodeType.UserInput) {
+      <flow-node-ivr-form [formControl]="form"/>
+    }
+    @case (nodeType.PlayText) {
+      <flow-node-play-text-form [formControl]="form"/>
+    }
+  }
+
+  <flow-node-body-outputs [outputs]="model.outputs" (removeConnection)="removeConnection.emit($event)"/>
+} @else {
+  <flow-node-footer-outputs [outputs]="model.outputs" (removeConnection)="removeConnection.emit($event)"/>
+}
+

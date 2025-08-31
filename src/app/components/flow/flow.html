@@ -1,0 +1,61 @@
+@let model = viewModel();
+@if (model) {
+
+  <flow-action-panel [viewModel]="model" (processAction)="processAction($event)" (resetFlow)="reset()"/>
+  <flow-palette [viewModel]="model"/>
+  <f-flow fDraggable
+          (fLoaded)="editorLoaded()"
+          (fMoveNodes)="moveNodes($event)"
+          (fCreateConnection)="createConnection($event)"
+          (fReassignConnection)="reassignConnection($event)"
+          (fCreateNode)="createNode($event)"
+          (fSelectionChange)="changeSelection($event)">
+    <f-background>
+      <f-circle-pattern/>
+    </f-background>
+    <f-line-alignment [fAlignThreshold]="20"/>
+    <f-selection-area/>
+    <f-canvas fZoom
+              [scale]="model?.transform?.scale"
+              [position]="model?.transform?.position"
+              [debounceTime]="fCanvasChangeEventDebounce"
+              (fCanvasChange)="changeCanvasTransform($event)">
+      @for (connection of connections(); track connection.id) {
+        <f-connection fBehavior="fixed"
+                      [fConnectionId]="connection.id"
+                      [fOffset]="32"
+                      fType="segment"
+                      [fOutputId]="connection.source"
+                      [fInputId]="connection.target">
+          <svg id="normal_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.END" [height]="5" [width]="5"
+               [refX]="4" [refY]="2.5">
+            <path d="M0,0L700,350L0,700L150,350z"/>
+          </svg>
+
+          <svg id="selected_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.SELECTED_END" [height]="5"
+               [width]="5" [refX]="4" [refY]="2.5">
+            <path d="M0,0L700,350L0,700L150,350z"/>
+          </svg>
+        </f-connection>
+      }
+      <f-connection-for-create fType="segment" [fOffset]="32">
+        <svg id="normal_end" viewBox="0 0 700 700" fMarker [type]="eMarkerType.END" [height]="5" [width]="5" [refX]="4"
+             [refY]="2.5">
+          <path d="M0,0L700,350L0,700L150,350z"/>
+        </svg>
+      </f-connection-for-create>
+      @for (node of nodes(); track node.id) {
+        <flow-node fNode
+                   [fNodeId]="node.id"
+                   [viewModel]="node"
+                   fNodeInput [fInputId]="node.input"
+                   [fInputDisabled]="!node.input"
+                   fInputConnectableSide="top"
+                   [fNodePosition]="node.position"
+                   (removeConnection)="removeConnection($event)">
+        </flow-node>
+      }
+    </f-canvas>
+    <f-minimap [fMinSize]="2000"/>
+  </f-flow>
+}

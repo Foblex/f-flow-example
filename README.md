@@ -1,38 +1,65 @@
-# CallCenter Flow Example
+# 📞 CallCenter Flow Example  
 
-This is an example of using the [@foblex/flow](https://github.com/Foblex/f-flow) library in an Angular project. 
-You can use this example as a starting point for your own project.
+An example project demonstrating how to use [@foblex/flow](https://github.com/Foblex/f-flow) with **Angular 20**.  
+The app is built entirely on **Angular Signals**, supports **state persistence in LocalStorage**, and comes with **light & dark themes** powered by **Angular Material**.  
 
-[DEMO](https://foblex.github.io/f-flow-example)
+👉 [Live Demo](https://foblex.github.io/f-flow-example)  
 
-<img src="example.png" width="500" >
+![Example GIF](./example.gif)  
 
-[LINK](https://github.com/Foblex/f-flow-example/assets/13272876/2bb7a1ca-bd5d-44d6-82a3-a0bc935e91f7)
+<img src="./example.png" width="600" />  
 
-## Used library capabilities
+---
 
-- [x] Zoom (with mouse wheel, double click, and buttons)
-- [x] Select elements (single selection using the mouse, multiple selection using the Shift key and the mouse)
-- [x] Drag and drop
-- [x] Create new connections
-- [x] Reassign connections
-- [x] Connection text
-- [x] Connection markers
-- [x] Segment connection type
-- [x] Fixed connection behavior
-- [x] Create new nodes using drag and drop from the palette
-- [x] Draggable background
+## 🚀 Features  
 
-## Installation
+- ⚡ **Signals-first** architecture – state management powered by Angular Signals  
+- 💾 **LocalStorage auto-save** – keep your flow even after refresh  
+- 🌗 **Light & Dark themes** – switch seamlessly  
+- 🎨 **Angular Material** integration  
+- 🌀 **Zoom** (mouse wheel, double-click, and buttons)  
+- 🖱 **Element selection** (single & multiple with `Shift`)  
+- 🔗 **Create and edit connections**  
+- 🏷 **Connection markers**  
+- 📐 **Segment connection type**  
+- 📍 **Fixed connection behavior**  
+- 🧩 **Drag & drop new nodes** from the palette  
+- 🌌 **Draggable background**  
 
-Run `npm install` to install the required packages.
+---
 
-## Development server
+## 📦 Installation  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone the repo and install dependencies:
 
-## License
+```bash
+git clone https://github.com/Foblex/f-flow-example.git
+cd f-flow-example
+npm install
+```
 
-This example is distributed under the MIT License. See the LICENSE file for more information.
+---
 
+## 🛠 Development server  
 
+Run the dev server with:  
+
+```bash
+ng serve
+```
+
+Navigate to 👉 `http://localhost:4200/`  
+The app will automatically reload when you change source files.  
+
+---
+
+## 📚 Powered By  
+
+- [@foblex/flow](https://github.com/Foblex/f-flow) – a flexible and powerful library for building interactive flow diagrams  
+
+---
+
+## 📜 License  
+
+This example is distributed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for details.  

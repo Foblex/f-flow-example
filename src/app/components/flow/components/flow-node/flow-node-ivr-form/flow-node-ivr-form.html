@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form">
+  <mat-form-field>
+    <mat-select placeholder="Select outputs" formControlName="outputs">
+      @for (option of OUTPUTS; track option.key) {
+        <mat-option [value]="option.key">{{ option.value }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</ng-container>
+

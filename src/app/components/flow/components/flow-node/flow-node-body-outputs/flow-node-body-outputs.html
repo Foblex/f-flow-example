@@ -1,0 +1,9 @@
+@for (output of outputs(); track output.id) {
+  <div class="output-item">
+    <span>{{ output.label }}</span>
+    <div fNodeOutput [fOutputId]="output.id" fOutputConnectableSide="right"
+         [isSelfConnectable]="false" (click)="removeConnection.emit(output.id)">
+      <mat-icon>close</mat-icon>
+    </div>
+  </div>
+}

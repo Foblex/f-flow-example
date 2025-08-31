@@ -1,0 +1,13 @@
+.f-selection-area {
+  background-color: var(--c-selection-bg);
+  border: 1px dashed var(--c-selection-border);
+}
+
+.f-background circle {
+  fill: var(--c-border);
+}
+
+.f-line-alignment .f-line {
+  background-color: var(--c-disabled-text);
+  width: 100%;
+}
