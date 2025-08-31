@@ -9,7 +9,7 @@ import {
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  ReactiveFormsModule, Validator, Validators
+  ReactiveFormsModule, Validator
 } from "@angular/forms";
 import {IFlowNodeIvrForm} from "./models/i-flow-node-ivr-form";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";

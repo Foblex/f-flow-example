@@ -20,7 +20,6 @@ import {EOperationSystem, PlatformService} from '@foblex/platform';
 import {FlowApiService} from "./providers/flow-api.service";
 import {FlowState} from "./flow-state";
 import {IFlowState} from "./models/i-flow-state";
-import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'flow',
@@ -34,7 +33,6 @@ import {NgClass} from "@angular/common";
     FlowActionPanel,
     FlowPalette,
     FormsModule,
-    NgClass
   ],
   host: {
     '(keydown)': 'onKeyDown($event)',

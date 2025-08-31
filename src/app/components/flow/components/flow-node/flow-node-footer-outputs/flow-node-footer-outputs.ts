@@ -1,5 +1,5 @@
 import {
-  Component, computed,
+  Component,
   input, output,
 } from '@angular/core';
 import {FFlowModule} from '@foblex/flow';
