@@ -1,0 +1,83 @@
+:root {
+  --node-min-width: 240px;
+  --node-text: var(--c-text);
+  --node-bg: var(--c-surface-1);
+  --node-border: var(--c-border);
+  --node-radius: var(--radius-sm);
+  --node-pad-x: 16px;
+  --node-top-border: transparent;
+  --node-selected-shadow: var(--shadow-selected);
+
+  --out-size: 16px;
+  --out-radius: var(--radius-sm);
+  --out-bg: var(--c-surface-2);
+  --out-border: var(--c-border);
+  --out-text: var(--c-text);
+
+  --icon-fs: var(--fs-sm);
+  --icon-size: 12px;
+  --icon-pad: 1px;
+
+  --out-connected-border: var(--c-primary);
+  --out-connected-bg: var(--c-primary);
+  --out-connected-text: var(--c-surface-3);
+  --out-connected-hover: var(--c-primary-hover);
+  --out-connected-active: var(--c-primary-active);
+}
+
+.f-node {
+  min-width: var(--node-min-width);
+  color: var(--node-text);
+  border: 1px solid var(--node-border);
+  border-radius: var(--node-radius);
+
+  background-color: var(--node-bg);
+  padding: 0 var(--node-pad-x);
+
+  border-top: 4px solid var(--node-top-border);
+
+  &.f-selected {
+    box-shadow: var(--node-selected-shadow);
+  }
+
+  &.invalid {
+    box-shadow: var(--node-invalid-shadow) !important;
+  }
+}
+
+.f-node-output {
+  width: var(--out-size);
+  height: var(--out-size);
+  background-color: var(--out-bg);
+  border-radius: var(--out-radius);
+  border: 1px solid var(--out-border);
+  color: var(--out-text);
+
+  .mat-icon {
+    font-size: var(--icon-fs);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: inherit;
+    padding: var(--icon-pad);
+    display: none;
+  }
+
+  &.f-node-output-connected {
+    cursor: pointer;
+    border-color: var(--out-connected-border);
+    background-color: var(--out-connected-bg);
+    color: var(--out-connected-text);
+
+    &:hover {
+      background-color: var(--out-connected-hover);
+    }
+
+    &:active {
+      background-color: var(--out-connected-active);
+    }
+
+    .mat-icon {
+      display: block;
+    }
+  }
+}

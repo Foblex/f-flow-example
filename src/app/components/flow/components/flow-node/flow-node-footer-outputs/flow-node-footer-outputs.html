@@ -1,0 +1,6 @@
+@for (output of outputs(); track output.id) {
+  <div fNodeOutput fOutputConnectableSide="bottom" [fOutputId]="output.id"
+       [isSelfConnectable]="false" (click)="removeConnection.emit(output.id)">
+    <mat-icon>close</mat-icon>
+  </div>
+}

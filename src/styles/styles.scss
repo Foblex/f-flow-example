@@ -1,6 +1,6 @@
-@import "colors";
-@import "material";
-@import "flow";
+@use "variables";
+@use "material";
+@use "flow";
 
 html, body {
   height: 100%;
@@ -11,7 +11,7 @@ html, body {
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--gray14);
+  background-color: var(--c-bg);
 }
 
 .flex-space {

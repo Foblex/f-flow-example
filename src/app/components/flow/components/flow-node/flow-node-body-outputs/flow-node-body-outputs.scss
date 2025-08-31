@@ -1,0 +1,20 @@
+:host {
+  --output-border: var(--c-border);
+  --output-height: 32px;
+  --output-pad-x: 16px;
+  --output-font-size: var(--fs-sm);
+
+  .output-item {
+    width: calc(100% + (var(--output-pad-x) * 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: calc(-1 * var(--output-pad-x));
+    border-top: 1px solid var(--output-border);
+
+    height: var(--output-height);
+    padding: 0 var(--output-pad-x);
+    font-size: var(--output-font-size);
+  }
+}

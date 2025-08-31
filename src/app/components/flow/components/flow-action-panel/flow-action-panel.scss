@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  gap: var(--gap-md);
+  z-index: 10;
+}
+
+.divider {
+  width: 2px;
+  background-color: var(--c-border);
+  margin: 0 8px;
+  border-radius: var(--radius-sm);
+}

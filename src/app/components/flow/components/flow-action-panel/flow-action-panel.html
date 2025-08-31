@@ -1,0 +1,69 @@
+<button matIconButton (click)="removeSelected()" [disabled]="!canRemove()"
+        matTooltip="Delete"
+        matTooltipPosition="below">
+  <mat-icon>delete</mat-icon>
+</button>
+
+<button matIconButton (click)="processAction.emit(action.SELECT_ALL)"
+        matTooltip="Select All"
+        matTooltipPosition="below">
+  <mat-icon>select_all</mat-icon>
+</button>
+
+<button matIconButton (click)="processAction.emit(action.ZOOM_IN)"
+        matTooltip="Zoom In"
+        matTooltipPosition="below">
+  <mat-icon>zoom_in</mat-icon>
+</button>
+
+<button matIconButton (click)="processAction.emit(action.ZOOM_OUT)"
+        matTooltip="Zoom Out"
+        matTooltipPosition="below">
+  <mat-icon>zoom_out</mat-icon>
+</button>
+
+<button matIconButton (click)="processAction.emit(action.FIT_TO_SCREEN)"
+        matTooltip="Fit to Screen"
+        matTooltipPosition="below">
+  <mat-icon>zoom_in_map</mat-icon>
+</button>
+
+<button matIconButton (click)="processAction.emit(action.ONE_TO_ONE)"
+        matTooltip="1:1"
+        matTooltipPosition="below">
+  <mat-icon>center_focus_strong</mat-icon>
+</button>
+
+<button matIconButton (click)="state.undo()" [disabled]="!state.canUndo()"
+        matTooltip="Undo"
+        matTooltipPosition="below">
+  <mat-icon>undo</mat-icon>
+</button>
+
+<button matIconButton (click)="state.redo()" [disabled]="!state.canRedo()"
+        matTooltip="Redo"
+        matTooltipPosition="below">
+  <mat-icon>redo</mat-icon>
+</button>
+
+<div class="divider"></div>
+
+<button matIconButton [matMenuTriggerFor]="themeMenu"
+        matTooltip="Theme"
+        matTooltipPosition="below">
+  <mat-icon>{{ currentTheme === 'dark' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+</button>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="toggleTheme('light')" [disabled]="currentTheme === 'light'">Light</button>
+  <button mat-menu-item (click)="toggleTheme('dark')" [disabled]="currentTheme === 'dark'">Dark</button>
+</mat-menu>
+
+<div class="divider"></div>
+
+<button matIconButton (click)="reset()"
+        matTooltip="Reset"
+        matTooltipPosition="below">
+  <mat-icon>clearAll</mat-icon>
+</button>
+
