@@ -5,9 +5,9 @@ The app is built entirely on **Angular Signals**, supports **state persistence i
 
 👉 [Live Demo](https://foblex.github.io/f-flow-example)  
 
-![Example GIF](./example.gif)  
+<img src="./example.png" />  
 
-<img src="./example.png" width="600" />  
+![Example GIF](./example.gif)  
 
 ---
 
